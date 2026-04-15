@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJlfb09451badec8e98f619408a74cab715"/>
+<html><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJle418b7feba41444a54ae12ccbdfa2b47"/>
   <meta charset="utf-8">
   <meta name="generator" content="Google Web Designer 16.4.1.0219">
   <meta name="template" content="Banner 3.0.0">
@@ -133,9 +133,9 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
     <gwd-pagedeck class="gwd-page-container" id="pagedeck">
       <gwd-page id="page1" class="gwd-page-wrapper gwd-page-size gwd-lightbox gwd-page-1o4m" data-gwd-width="100%" data-gwd-height="100%">
         <div class="gwd-page-content gwd-page-size gwd-div-efpt">
-          <gwd-image id="1080x1920_Backup" source="1080x1920_Backup.jpg" scaling="stretch" class="gwd-image-1m5s"></gwd-image>
-          <gwd-image source="VW_1080x1920.jpg" scaling="stretch" class="gwd-image-rdl5" id="VW_1080x1920_Main"></gwd-image><span class="gwd-span-wgt0" id="retailerHeading">Book your test drive at<br class=""></span><span class="gwd-span-yn08" id="retailername">Lister Stratford upon Avon.</span>
-          <gwd-image source="1080x1920_bg.jpg" scaling="stretch" class="gwd-image-18vh" id="1080x1920_bg_2"></gwd-image><span class="gwd-span-pq44" id="textCopy_2"></span><span class="gwd-span-1bgn" id="retailername_1"></span>
+          <gwd-image source="VW_1080x1920.jpg" scaling="stretch" class="gwd-image-rdl5" id="VW_1080x1920_Main"></gwd-image>
+          <gwd-image id="1080x1920_Backup" source="1080x1920_Backup.jpg" scaling="stretch" class="gwd-image-1m5s"></gwd-image><span class="gwd-span-wgt0" id="retailerHeading">Book your test drive at<br class=""></span><span class="gwd-span-yn08" id="retailername">Lister Stratford upon Avon.</span>
+          <gwd-image source="1080x1920_bg.jpg" scaling="stretch" class="gwd-image-18vh" id="1080x1920_bg_2"></gwd-image><span class="gwd-span-pq44" id="textCopy_2"></span><span class="gwd-span-1bgn" id="retailername_1"><br></span>
         </div>
       </gwd-page>
     </gwd-pagedeck>
@@ -154,11 +154,11 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
 
 
         const fallbackImage = document.getElementById('1080x1920_Backup');
-        console.log(fallbackImage);
+       // console.log(fallbackImage);
         fallbackImage.style.opacity = 0;
 
         const textBGImage = document.getElementById('1080x1920_bg_2');
-        console.log(textBGImage);
+        //console.log(textBGImage);
         textBGImage.style.opacity = 0;
 
         const textcopyLastFrame = document.getElementById('textCopy_2');
@@ -171,20 +171,6 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
         //DYNAMIC Calculations
         var userLatitude;
         var userLongitude;
-        /*
-                function getQueryStringParams() {
-                  console.log("Parsing parameters");
-                  var params = {};
-                  var queryString = window.location.search.substring(1);
-                  var regex = /([^&=]+)=([^&]*)/g;
-                  var match;
-
-                  while (match = regex.exec(queryString)) {
-                    params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
-                  }
-                  console.log("Parsed parameters:", params);
-                  return params;
-                } */
 
         var qs = new URLSearchParams(window.location.search);
         var vioohAssetId = qs.get("viooh_asset_id");
@@ -192,13 +178,13 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
         //var infoElement = document.getElementById('info');
         //infoElement.innerHTML = '<p>Asset ID: ' + vioohAssetId + '</p>';        
 
-        console.log("Sheet data : " + frameListData);
+       // console.log("Sheet data : " + frameListData);
         if (frameListData) {
           var locationData = {};
           console.log("sheet data length: " + frameListData.length);
           for (var i = 0; i < frameListData.length; i++) {
             var row = frameListData[i];
-            console.log("sheet data: " + frameListData[i]);
+           // console.log("sheet data: " + frameListData[i]);
             locationData[row["ASSETUUID"]] = {
               lat: parseFloat(row["LATITUDE"]),
               lon: parseFloat(row["LONGITUDE"])
@@ -217,7 +203,7 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
         fetchLocation();
 
         function fetchLocation() {
-          console.log("Fetch Location called");
+          //console.log("Fetch Location called");
           if (userLatitude && userLongitude) {
             var currentLat = userLatitude;
             var currentLon = userLongitude;
@@ -235,7 +221,7 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
               var storeText = store["Textcopy"];
 
               var distance = getDistanceFromLatLonInKm(currentLat, currentLon, storeLat, storeLon);
-              console.log("Distance Calculated: " + distance);
+             // console.log("Distance Calculated: " + distance);
 
               if (distance < minDistance) {
                 minDistance = distance;
@@ -253,7 +239,7 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
             if (nearestStore) {
               ifDynamic = true;
               console.log('Nearest Store:', nearestStore.name);
-              console.log('Text:', nearestStore.text);
+              //console.log('Text:', nearestStore.text);
 
               console.log('Distance:', minDistance.toFixed(2), 'km');
               //console.log('Walking Time: ', minTime.toFixed(2), ' minutes');
@@ -340,7 +326,7 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
         // Start the Ad lifecycle.
         requestAnimationFrame(function() {
           setTimeout(function() {
-             //gwdAd.initAd();
+            //gwdAd.initAd();
 
 
           }, 1);
