@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJlf3e6f7c9ac390719ac5177172bc7412b"/>
+<html><head><meta name="GCD" content="YTk3ODQ3ZWZhN2I4NzZmMzBkNTEwYjJl3291d62bb983bc5c3b3289ea0f3e4ce5"/>
   <meta charset="utf-8">
   <meta name="generator" content="Google Web Designer 16.4.1.0219">
   <meta name="template" content="Banner 3.0.0">
@@ -227,13 +227,14 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
               ifDynamic = true;
               console.log('Nearest Store:', nearestStore.name);
               //console.log('Text:', nearestStore.text);
-
+              const cleanRetailerName = nearestStore.name.replace(/\((.*?)\)/g, '$1').replace(/\s+/g, ' ').trim();
+              console.log('Clean Nearest Store:', cleanRetailerName);
               console.log('Distance:', minDistance.toFixed(2), 'km');
               //console.log('Walking Time: ', minTime.toFixed(2), ' minutes');
               const containerHeading = document.getElementById('retailerHeading');
               const containerStoreName = document.getElementById('retailername');
               containerHeading.innerHTML = `Book your test drive at `;
-              containerStoreName.innerHTML = `${nearestStore.name}.`;
+              containerStoreName.innerHTML = `${cleanRetailerName}.`;
               containerStoreName.style.fontFamily = 'VWHeadBold';
               containerHeading.style.fontFamily = 'VWHeadRegular';
 
@@ -302,7 +303,7 @@ set:function(a){this.g.height=a}},width:{configurable:!0,enumerable:!0,get:funct
         // Start the Ad lifecycle.
         requestAnimationFrame(function() {
           setTimeout(function() {
-           // gwdAd.initAd();
+             //gwdAd.initAd();
           }, 1);
         });
       }
